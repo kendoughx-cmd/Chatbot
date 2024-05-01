@@ -2,9 +2,13 @@ import tkinter as tk
 from tkinter import scrolledtext
 from tkinter import ttk
 import openai
+from dotenv import load_dotenv
+import os
+
+load_dotenv()  # take environment variables from .env.
 
 # Your OpenAI API key should be kept secret. Do not expose it in your code.
-openai.api_key = "sk-proj-TBnmxyHJRKiI0BnLlppcT3BlbkFJi7nvzRjDokHu4eeICCKO"
+openai.api_key = os.getenv('API_KEY')
 
 def chat_with_gpt(prompt):
     response = openai.ChatCompletion.create(
